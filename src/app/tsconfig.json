@@ -1,11 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "lib": [
-      "ES2020"
-    ],
-    "types": [
-      "vite/client"
-    ]
+    "lib": ["ES2020"],
+    "types": ["vite/client"]
   }
 }
