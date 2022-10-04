@@ -1,18 +1,14 @@
-import { Layout } from "antd";
-import { Sidebar } from "./features/layout/Sidebar";
-import { Router } from "./features/roouting/Router";
+import { AppShell } from "@mantine/core";
+import { Sidebar } from "./features/layout/components/Sidebar";
+import { Route, Routes } from "react-router-dom";
+import { SketchPage } from "./features/sketches/pages/SketchPage";
 
 export const App = () => {
   return (
-    <Layout style={{ height: "100vh" }}>
-      <Sidebar />
-      <Layout.Content
-        style={{
-          padding: "24px",
-        }}
-      >
-        <Router />
-      </Layout.Content>
-    </Layout>
+    <AppShell padding={0} navbar={<Sidebar />}>
+      <Routes>
+        <Route path=":sketchId" element={<SketchPage />} />
+      </Routes>
+    </AppShell>
   );
 };

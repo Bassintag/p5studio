@@ -10,4 +10,9 @@ export default defineConfig({
     outDir: path.join(__dirname, "dist", "app"),
     minify: false,
   },
+  resolve: {
+    alias: {
+      "@common": path.join(__dirname, "src", "common"),
+    },
+  },
 });

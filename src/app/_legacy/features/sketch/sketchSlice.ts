@@ -14,6 +14,12 @@ export const sketchSlice = createSlice({
   name: "sketch",
   initialState,
   reducers: {
+    setSketches: (state, { payload }: PayloadAction<string[]>) => {
+      state.sketchNames = payload;
+      for (const sketch of payload) {
+        loadSketch(sketch);
+      }
+    },
     upsertSketches: (state, { payload }: PayloadAction<string[]>) => {
       if (state.sketchNames == null) {
         state.sketchNames = [];
@@ -31,7 +37,7 @@ export const sketchSlice = createSlice({
   },
 });
 
-export const { upsertSketches } = sketchSlice.actions;
+export const { setSketches, upsertSketches } = sketchSlice.actions;
 
 export const sketchReducer = sketchSlice.reducer;
 

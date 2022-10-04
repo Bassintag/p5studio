@@ -1,6 +1,7 @@
 import { io } from "socket.io-client";
 import { store } from "./store";
-import { upsertSketches } from "./features/sketch/sketchSlice";
+import { setRootFolder } from "./features/files/filesSlice";
+import { loadSketch } from "./services/sketchService";
 
 export const setupSocket = () => {
   const socket = io({
@@ -11,11 +12,13 @@ export const setupSocket = () => {
   socket.on("message", (event, data) => {
     console.log("Message: ", event, data);
     switch (event) {
-      case "sketches":
-        store.dispatch(upsertSketches(data));
+      case "files":
+        store.dispatch(setRootFolder(data));
         break;
-      case "sketchChanged":
-        store.dispatch(upsertSketches([data]));
+      case "fileChange":
+        if (store.getState().sketch.autoRefresh) {
+          loadSketch(data);
+        }
         break;
     }
   });
