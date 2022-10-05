@@ -1,6 +1,6 @@
-import { useSketchId } from "../../hooks/useSketchId";
-import { useAppDispatch, useAppSelector } from "../../../../store";
-import { clearSketchLogs, selectSketchLogs } from "../../sketchSlice";
+import { useSketchId } from "../../../hooks/useSketchId";
+import { useAppDispatch, useAppSelector } from "../../../../../store";
+import { clearSketchLogs, selectSketchLogs } from "../../../sketchSlice";
 import { Box, Button, createStyles, Text } from "@mantine/core";
 import { SketchLogTitle } from "./SketchLogTitle";
 import { SketchLogTimestamp } from "./SketchLogTimestamp";

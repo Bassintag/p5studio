@@ -1,6 +1,6 @@
 import { Text, TextProps } from "@mantine/core";
-import { SketchLog, SketchLogType } from "../../sketchSlice";
-import { useFormattedTime } from "../../../datetime/hooks/useFormattedTime";
+import { SketchLog, SketchLogType } from "../../../sketchSlice";
+import { useFormattedTime } from "../../../../datetime/hooks/useFormattedTime";
 
 export interface SketchLogTimestampProps extends Omit<TextProps, "children"> {
   log: SketchLog;

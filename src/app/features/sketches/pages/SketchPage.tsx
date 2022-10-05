@@ -3,8 +3,8 @@ import { useSketch } from "../hooks/useSketch";
 import { SketchCanvas } from "../components/SketchCanvas";
 import { createStyles, Loader } from "@mantine/core";
 import { SketchCanvasProvider } from "../contexts/SketchCanvasContext";
-import { SketchToolbar } from "../components/SketchToolbar";
-import { SketchFooter } from "../components/SketchFooter";
+import { SketchToolbar } from "../components/SketchToolbar/SketchToolbar";
+import { SketchFooter } from "../components/SketchFooter/SketchFooter";
 
 const useStyles = createStyles({
   wrapper: {

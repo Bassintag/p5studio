@@ -19,11 +19,13 @@ export interface SketchLog {
 export interface SketchSliceState {
   autoRefresh: boolean;
   background: string;
+  collapseFooter: boolean;
   logs: Record<string, SketchLog[]>;
 }
 
 const initialState: SketchSliceState = {
   autoRefresh: true,
+  collapseFooter: false,
   background: "white",
   logs: {},
 };
@@ -34,6 +36,9 @@ const sketchSlice = createSlice({
   reducers: {
     setSketchAutoRefresh: (state, { payload }: PayloadAction<boolean>) => {
       state.autoRefresh = payload;
+    },
+    setCollapseFooter: (state, { payload }: PayloadAction<boolean>) => {
+      state.collapseFooter = payload;
     },
     setSketchBackground: (state, { payload }: PayloadAction<string>) => {
       state.background = payload;
@@ -75,6 +80,7 @@ export const sketchReducer = persistReducer(
 
 export const {
   addSketchLog,
+  setCollapseFooter,
   clearSketchLogs,
   setSketchAutoRefresh,
   setSketchBackground,
@@ -82,6 +88,9 @@ export const {
 
 export const selectSketchAutoRefresh = (state: RootState) =>
   state.sketch.autoRefresh;
+
+export const selectSketchCollapseFooter = (state: RootState) =>
+  state.sketch.collapseFooter;
 
 export const selectSketchBackground = (state: RootState) =>
   state.sketch.background;

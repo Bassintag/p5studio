@@ -2,7 +2,8 @@
   "name": "p5-studio",
   "version": "0.1.2",
   "type": "module",
-  "types": "./dist/types",
+  "types": "dist/types",
+  "license": "MIT",
   "bin": {
     "p5": "dist/cli/index.mjs"
   },

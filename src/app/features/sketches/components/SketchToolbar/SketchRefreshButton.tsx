@@ -1,7 +1,7 @@
 import { Button } from "@mantine/core";
 import { AiOutlineReload } from "react-icons/ai";
-import { loadSketch } from "../../../services/sketchService";
-import { useSketchId } from "../hooks/useSketchId";
+import { loadSketch } from "../../../../services/sketchService";
+import { useSketchId } from "../../hooks/useSketchId";
 
 export const SketchRefreshButton = () => {
   const sketchId = useSketchId();

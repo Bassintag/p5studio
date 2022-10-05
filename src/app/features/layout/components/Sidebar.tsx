@@ -11,7 +11,7 @@ export const Sidebar = () => {
   const { classes } = useStyle();
 
   return (
-    <Navbar className={classes.navbar} p="xs" width={{ base: 400 }}>
+    <Navbar className={classes.navbar} p="xs" width={{ base: 256 }}>
       <SidebarFilesSection />
     </Navbar>
   );

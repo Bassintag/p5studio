@@ -1,6 +1,6 @@
 import { Button } from "@mantine/core";
 import { AiOutlineDownload } from "react-icons/ai";
-import { useSketchCanvasContext } from "../contexts/SketchCanvasContext";
+import { useSketchCanvasContext } from "../../contexts/SketchCanvasContext";
 import { saveAs } from "file-saver";
 
 export const SketchDownloadButton = () => {

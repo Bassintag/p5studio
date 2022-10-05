@@ -1,5 +1,5 @@
 import { Text, TextProps } from "@mantine/core";
-import { SketchLog, SketchLogType } from "../../sketchSlice";
+import { SketchLog, SketchLogType } from "../../../sketchSlice";
 
 export interface SketchLogTitleProps extends Omit<TextProps, "children"> {
   log: SketchLog;

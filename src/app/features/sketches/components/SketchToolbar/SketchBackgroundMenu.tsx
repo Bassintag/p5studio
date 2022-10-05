@@ -1,8 +1,8 @@
 import { Box, Button, Menu, Text } from "@mantine/core";
-import bgUrl from "../../../static/bg.jpg";
-import { useAppDispatch, useAppSelector } from "../../../store";
-import { selectSketchBackground, setSketchBackground } from "../sketchSlice";
-import { BackgroundIcon } from "./BackgroundIcon";
+import bgUrl from "../../../../static/bg.jpg";
+import { useAppDispatch, useAppSelector } from "../../../../store";
+import { selectSketchBackground, setSketchBackground } from "../../sketchSlice";
+import { BackgroundIcon } from "../BackgroundIcon";
 
 const options = {
   white: {

@@ -1,6 +1,9 @@
 import { Switch } from "@mantine/core";
-import { useAppDispatch, useAppSelector } from "../../../store";
-import { selectSketchAutoRefresh, setSketchAutoRefresh } from "../sketchSlice";
+import { useAppDispatch, useAppSelector } from "../../../../store";
+import {
+  selectSketchAutoRefresh,
+  setSketchAutoRefresh,
+} from "../../sketchSlice";
 
 export const SketchAutoRefreshSwitch = () => {
   const autoRefresh = useAppSelector(selectSketchAutoRefresh);
