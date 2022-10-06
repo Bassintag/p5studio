@@ -4,6 +4,7 @@
   "type": "module",
   "types": "dist/types",
   "license": "MIT",
+  "repository": "https://github.com/Bassintag/p5studio",
   "bin": {
     "p5": "dist/cli/index.mjs"
   },
