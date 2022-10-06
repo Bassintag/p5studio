@@ -1,6 +1,6 @@
 # P5 Studio
 
-<img height="256" src=".\screenshots\sketch.png"/>
+![Screenshot](https://raw.githubusercontent.com/Bassintag/p5studio/master/screenshots/sketch.png)
 
 ## Table of matters
 
