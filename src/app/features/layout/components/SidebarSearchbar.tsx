@@ -3,7 +3,7 @@ import { useSidebarSearchContext } from "../contexts/SidebarSearchContext";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export const SidebarSearchbar = () => {
-  const { setQuery, query } = useSidebarSearchContext();
+  const { query, setQuery } = useSidebarSearchContext();
 
   return (
     <TextInput

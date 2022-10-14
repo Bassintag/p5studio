@@ -17,21 +17,9 @@ export interface SidebarFolderLinkProps {
 
 export const SidebarFolderLink = ({ folder }: SidebarFolderLinkProps) => {
   const [isOpen, { toggle }] = useDisclosure(false);
-  const { query } = useSidebarSearchContext();
-
-  const children = useMemo(() => {
-    console.log(query);
-    if (query) {
-      return folder.children.filter(({ name }) =>
-        name.toLowerCase().includes(query)
-      );
-    } else {
-      return folder.children;
-    }
-  }, [query, folder]);
 
   const icon = useMemo(() => {
-    if (children.length === 0) {
+    if (folder.children.length === 0) {
       return isOpen ? <AiOutlineFolderOpen /> : <AiOutlineFolder />;
     } else {
       return isOpen ? <AiFillFolderOpen /> : <AiFillFolder />;
