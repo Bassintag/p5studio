@@ -1,6 +1,6 @@
 {
   "name": "p5-studio",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "types": "dist/types",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "prepush": "yarn build",
     "prepublish": "yarn clear && yarn build",
     "serve:app": "vite",
-    "start:cli": "node dist/cli",
+    "start:cli": "node dist/cli/index.mjs",
     "build:cli": "node build-cli.mjs",
     "build:app": "vite build",
     "build:types": "tsc --project tsconfig.build.json",
