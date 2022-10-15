@@ -1,9 +1,9 @@
-import { Box, createStyles, Text } from "@mantine/core";
+import { createStyles } from "@mantine/core";
 import { SketchBackgroundMenu } from "./SketchBackgroundMenu";
 import { SketchDownloadButton } from "./SketchDownloadButton";
 import { SketchRefreshButton } from "./SketchRefreshButton";
 import { SketchAutoRefreshSwitch } from "./SketchAutoRefreshSwitch";
-import { useSketchCanvasContext } from "../../contexts/SketchCanvasContext";
+import { SketchSaveButton } from "./SketchSaveButton";
 
 const useStyles = createStyles((theme) => ({
   toolbar: {
@@ -19,12 +19,11 @@ const useStyles = createStyles((theme) => ({
 export const SketchToolbar = () => {
   const { classes } = useStyles();
 
-  const { sketch } = useSketchCanvasContext();
-
   return (
     <div className={classes.toolbar}>
       <SketchBackgroundMenu />
       <SketchDownloadButton />
+      <SketchSaveButton />
       <SketchRefreshButton />
       <SketchAutoRefreshSwitch />
     </div>

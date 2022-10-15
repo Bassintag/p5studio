@@ -8,6 +8,7 @@ import path from "path";
 export interface ServeOptions {
   port?: number | string;
   sketchesDir?: string;
+  outDir?: string;
 }
 
 export class ServeCommand extends CliCommand {
@@ -22,15 +23,25 @@ export class ServeCommand extends CliCommand {
         "-d, --sketchesDir <path>",
         "Directory that contains the sketches",
         "."
+      )
+      .option(
+        "-o, --outDir <path>",
+        "Directory that contains the rendered sketches",
+        "./renders"
       );
   }
 
-  protected async run({ port, sketchesDir }: ServeOptions): Promise<void> {
+  protected async run({
+    port,
+    sketchesDir,
+    outDir,
+  }: ServeOptions): Promise<void> {
     const fileServer = new FileServer(path.join(root, "sketches"), {
       root: sketchesDir,
     });
     const server = new Server(root, fileServer, {
       port,
+      rendersPath: outDir,
     });
     fileServer.start();
     server.start();

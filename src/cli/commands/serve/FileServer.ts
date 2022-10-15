@@ -24,7 +24,7 @@ export class FileServer extends EventEmitter {
   ) {
     super();
     this.root = path.resolve(root);
-    this.files = new Folder(path.basename(root));
+    this.files = new Folder(path.basename(this.root));
     this.sketchesData = {};
   }
 

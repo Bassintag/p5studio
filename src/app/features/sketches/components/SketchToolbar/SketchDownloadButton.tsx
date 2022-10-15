@@ -10,7 +10,7 @@ export const SketchDownloadButton = () => {
     if (canvasRef.current) {
       const svg = canvasRef.current.getElementsByTagName("svg")[0];
       if (svg != null) {
-        saveAs(new Blob([svg.innerHTML]), `${sketch.name}.svg`);
+        saveAs(new Blob([svg.outerHTML]), `${sketch.name}.svg`);
       }
     }
   };

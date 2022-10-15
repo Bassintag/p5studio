@@ -22,4 +22,6 @@ export const setupSocket = () => {
         break;
     }
   });
+
+  return socket;
 };

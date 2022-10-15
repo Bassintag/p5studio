@@ -6,9 +6,12 @@ import { FileServer } from "./FileServer";
 import { Folder } from "../../../common/Document";
 import chalk from "chalk";
 import debounce from "lodash.debounce";
+import { SocketHandler } from "./socket-handlers/SocketHandler";
+import { SaveSocketHandler } from "./socket-handlers/SaveSocketHandler";
 
 export interface ServerOptions {
   port?: string | number;
+  rendersPath?: string;
 }
 
 export class Server {
@@ -20,15 +23,19 @@ export class Server {
   private httpServer?: HttpServer;
   private socketServer?: SocketServer;
 
+  private readonly handlers: SocketHandler[];
+
   constructor(
     root: string,
     private readonly fileServer: FileServer,
-    { port = 3000 }: ServerOptions
+    { port = 3000, rendersPath = "renders" }: ServerOptions
   ) {
-    this.appRoot = path.join(root, "app");
+    this.appRoot = path.resolve(path.join(root, "app"));
     this.indexRoot = path.join(this.appRoot, "index.html");
     this.sketchesRoot = path.join(root, "sketches");
     this.port = port;
+    const rendersRoot = path.join(process.cwd(), rendersPath);
+    this.handlers = [new SaveSocketHandler(rendersRoot)];
   }
 
   private handleFileChange(sketchId: string) {
@@ -42,7 +49,6 @@ export class Server {
   start(): void {
     const app = express();
     app.use(express.static(this.appRoot));
-    console.log(this.sketchesRoot);
     app.use("/sketches", express.static(this.sketchesRoot));
     app.get("/state", (req, res) => {
       res.json(this.fileServer.files);
@@ -73,9 +79,12 @@ export class Server {
       this.handleFileChange(sketchId)
     );
 
-    this.socketServer.on("connect", (socket) => {
+    this.socketServer.on("connection", (socket) => {
       if (this.fileServer.files) {
         socket.send("files", this.fileServer.files);
+        for (const handler of this.handlers) {
+          handler.on(socket);
+        }
       }
     });
 

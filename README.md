@@ -52,24 +52,25 @@ Usage: `p5 [options] [command]`
 
 Creates a new workspace with the provided name
 
-| Option    | Description                  | Default                   |
-|-----------|------------------------------|---------------------------|
-| -o, --out | Path of the output directory | Current working directory |
+| Option    | Description                  | Default |
+|-----------|------------------------------|---------|
+| -o, --out | Path of the output directory | .       |
 
 #### generate [options] \<name> / g [options] \<name>
 
 Generate a new sketch with the provided name
 
-| Option    | Description                  | Default                   |
-|-----------|------------------------------|---------------------------|
-| -o, --out | Path of the output directory | Current working directory |
+| Option    | Description                  | Default |
+|-----------|------------------------------|---------|
+| -o, --out | Path of the output directory | .       |
 
 #### serve [options]
 
-| Option            | Description                          | Default                   |
-|-------------------|--------------------------------------|---------------------------|
-| -p, --port        | Port to start the server on          | 3000                      |
-| -d, --sketchesDir | Directory that contains the sketches | Current working directory |
+| Option            | Description                                   | Default   |
+|-------------------|-----------------------------------------------|-----------|
+| -p, --port        | Port to start the server on                   | 3000      |
+| -d, --sketchesDir | Directory that contains the sketches          | .         |
+| -o, --outDir      | Directory that contains the rendered sketches | ./renders |
 
 
 ## Writing sketches

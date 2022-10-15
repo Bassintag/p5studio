@@ -1,5 +1,7 @@
 /dist/
 /node_modules/
 /.idea/
+/sketches/
+/renders/
 *.iml
 *.log

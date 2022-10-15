@@ -9,4 +9,5 @@ esbuild.build({
   outfile: "dist/cli/index.mjs",
   minify: true,
   plugins: [nodeExternalsPlugin()],
+  watch: process.argv.includes('--watch')
 });

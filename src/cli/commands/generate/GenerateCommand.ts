@@ -6,6 +6,7 @@ import chalk from "chalk";
 import kebabCase from "lodash.kebabcase";
 import { getResource } from "../../utils/getResource";
 import Mustache from "mustache";
+import { name as packageName } from "../../../../package.json";
 
 export interface GenerateOptions {
   out: string;
@@ -30,6 +31,7 @@ export class GenerateCommand extends CliCommand {
     const template = await getResource("sketch.ts.mustache");
     const rendered = Mustache.render(template, {
       name,
+      packageName,
     });
     await fs.promises.writeFile(filePath, rendered);
     console.log(chalk.green("Generated file:"), chalk.gray(filePath));
