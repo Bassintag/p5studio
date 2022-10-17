@@ -10,40 +10,43 @@ export const SketchSaveButton = () => {
   const save = useSendSaveMessage();
 
   const handleSave = () => {
-    if (canvasRef.current) {
-      const svg = canvasRef.current.getElementsByTagName("svg")[0];
-      if (svg != null) {
-        const timestamp = format(new Date(), "yyMMdd-hhmmss");
-        const fileName = `${
-          sketch.metadata?.name ?? sketch.name
-        }.${timestamp}.svg`;
-        const id = fileName;
-        showNotification({
-          id,
-          title: "Saving render",
-          message: "Loading...",
-          color: "orange",
-          loading: true,
-          autoClose: false,
-        });
-        save(
-          {
-            fileName,
-            sketchData: svg.outerHTML,
-          },
-          ({ path }) => {
-            updateNotification({
-              id,
-              title: "Saved render",
-              message: path,
-              color: "green",
-              loading: false,
-              autoClose: true,
-            });
-          }
-        );
-      }
+    if (!canvasRef.current) {
+      return;
     }
+    const svg = canvasRef.current.getElementsByTagName("svg")[0];
+    if (svg == null) {
+      return;
+    }
+    const timestamp = format(new Date(), "yyMMdd-hhmmss");
+    const fileName = `${sketch.metadata?.name ?? sketch.name}.${timestamp}.svg`;
+    const id = fileName;
+    showNotification({
+      id,
+      title: "Saving render",
+      message: "Loading...",
+      color: "orange",
+      loading: true,
+      autoClose: false,
+    });
+    save(
+      {
+        fileName,
+        sketchData: svg.outerHTML,
+        options: {
+          optimizations: sketch.metadata?.optimizations,
+        },
+      },
+      ({ path }) => {
+        updateNotification({
+          id,
+          title: "Saved render",
+          message: path,
+          color: "green",
+          loading: false,
+          autoClose: true,
+        });
+      }
+    );
   };
 
   return (

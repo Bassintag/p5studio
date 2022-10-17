@@ -1,10 +1,12 @@
+import { SketchOptimization } from "@types";
+
 export interface SaveSketchMessage {
   fileName: string;
 
   sketchData: string;
 
   options?: {
-    optimize?: boolean;
+    optimizations?: SketchOptimization[];
   };
 }
 

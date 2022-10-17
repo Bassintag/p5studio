@@ -12,6 +12,8 @@
 
 ### Installation
 
+Before starting make sure you have Python 3 installed on your computer and that the `python3` command is available in the path.
+
 P5 Studio is available as a CLI, it is recommended to install it globally.
 
 ```bash
@@ -83,6 +85,8 @@ __In order for a sketch to be recognized, the file name must end by `.sketch.ts`
 
 It is recommended to use the `generate` command to create new sketches in order to avoid mistakes.
 
+The `optimization` field in the 
+
 ### Example sketch
 
 ```typescript
@@ -98,6 +102,7 @@ export const metadata: SketchMetadata = {
     w: 500,
     h: 500,
   },
+  optimizations: ['lineSimplify', 'lineMerge', 'reLoop', 'lineSort'],
 };
 
 // This function is called once every time the sketch is loaded.

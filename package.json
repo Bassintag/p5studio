@@ -11,6 +11,7 @@
   "files": [
     "resources",
     "dist",
+    "scripts",
     "README.md"
   ],
   "scripts": {
@@ -20,7 +21,7 @@
     "prepare": "husky install",
     "prepush": "yarn build",
     "prepublish": "yarn clear && yarn build",
-    "postinstall": "python3 -m pip install vpype",
+    "postinstall": "node scripts/postinstall.js",
     "serve:app": "vite",
     "start:cli": "node dist/cli/index.mjs",
     "build:cli": "node build-cli.mjs",
