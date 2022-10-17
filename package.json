@@ -1,6 +1,6 @@
 {
   "name": "p5-studio",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "types": "dist/types",
   "license": "MIT",
@@ -10,7 +10,8 @@
   },
   "files": [
     "resources",
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "format": "prettier --write src",
@@ -19,6 +20,7 @@
     "prepare": "husky install",
     "prepush": "yarn build",
     "prepublish": "yarn clear && yarn build",
+    "postinstall": "python3 -m pip install vpype",
     "serve:app": "vite",
     "start:cli": "node dist/cli/index.mjs",
     "build:cli": "node build-cli.mjs",
