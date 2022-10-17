@@ -15,6 +15,14 @@ const formatResolution = (metadata?: SketchMetadata) => {
   }
 };
 
+const formatOptimizations = (metadata?: SketchMetadata) => {
+  if (metadata && metadata.optimizations) {
+    return metadata.optimizations.join(", ");
+  } else {
+    return "none";
+  }
+};
+
 const useStyles = createStyles((theme) => ({
   rowTitle: {
     fontWeight: "bold",
@@ -45,6 +53,10 @@ export const SketchInfos = () => {
         <tr className={classes.row}>
           <td className={classes.rowTitle}>Resolution</td>
           <td>{formatResolution(sketch.metadata)}</td>
+        </tr>
+        <tr className={classes.row}>
+          <td className={classes.rowTitle}>Optimizations</td>
+          <td>{formatOptimizations(sketch.metadata)}</td>
         </tr>
       </tbody>
     </Table>

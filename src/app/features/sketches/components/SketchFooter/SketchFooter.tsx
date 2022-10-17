@@ -28,11 +28,7 @@ const useStyles = createStyles((theme, isCollapsed: boolean) => ({
     minHeight: isCollapsed ? undefined : "256px",
     height: isCollapsed ? "128px" : "30vh",
     background: theme.colors.gray[0],
-    "> div": {
-      width: "100%",
-      height: "100%",
-      overflow: "auto",
-    },
+    overflowY: "auto",
   },
   collapseButton: {
     marginLeft: "auto",

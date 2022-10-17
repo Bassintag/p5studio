@@ -12,9 +12,12 @@ const useStyles = createStyles((theme) => ({
     flexDirection: "column-reverse",
     alignItems: "stretch",
     position: "relative",
+    width: "100%",
+    height: "100%",
+    overflow: "auto",
   },
   button: {
-    position: "absolute",
+    position: "fixed",
     bottom: "16px",
     right: "16px",
   },
