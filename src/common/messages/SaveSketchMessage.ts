@@ -1,13 +1,11 @@
-import { SketchOptimization } from "@types";
+import { SketchMetadata } from "@types";
 
 export interface SaveSketchMessage {
   fileName: string;
 
   sketchData: string;
 
-  options?: {
-    optimizations?: SketchOptimization[];
-  };
+  options?: SketchMetadata;
 }
 
 export type SaveSketchResponse = {

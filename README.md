@@ -12,7 +12,7 @@
 
 ### Installation
 
-Before starting make sure you have Python 3 installed on your computer and that the `python3` command is available in the path.
+Before starting make sure you have [Python 3](https://www.python.org/downloads/) installed on your computer and that the `python` command is available in the path.
 
 P5 Studio is available as a CLI, it is recommended to install it globally.
 

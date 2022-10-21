@@ -32,9 +32,7 @@ export const SketchSaveButton = () => {
       {
         fileName,
         sketchData: svg.outerHTML,
-        options: {
-          optimizations: sketch.metadata?.optimizations,
-        },
+        options: sketch.metadata,
       },
       ({ path }) => {
         updateNotification({

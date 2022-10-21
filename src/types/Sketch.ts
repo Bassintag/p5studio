@@ -1,15 +1,23 @@
 import { SketchFn } from "./SketchFn";
+import { SketchOptimization } from "./SketchOptimization";
 
 export interface SketchResolution {
   w: number;
   h: number;
 }
 
-export type SketchOptimization =
-  | "lineSimplify"
-  | "reLoop"
-  | "lineMerge"
-  | "lineSort";
+export type SketchGCodeProfile =
+  | "ninja"
+  | "gcode"
+  | "gcode_relative"
+  | "csv"
+  | "json"
+  | "isvg"
+  | string;
+
+export interface SketchGCodeOptions {
+  profile?: SketchGCodeProfile;
+}
 
 export interface SketchMetadata {
   name?: string;
@@ -19,6 +27,8 @@ export interface SketchMetadata {
   fps?: number;
 
   optimizations?: SketchOptimization[];
+
+  gCode?: boolean | SketchGCodeOptions;
 }
 
 export interface Sketch {
@@ -27,5 +37,6 @@ export interface Sketch {
   metadata?: SketchMetadata;
 
   setup?: SketchFn;
+
   draw?: SketchFn;
 }

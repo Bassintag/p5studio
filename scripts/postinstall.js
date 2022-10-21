@@ -1,7 +1,7 @@
 import { exec } from "child_process";
 import chalk from "chalk";
 
-const cmd = exec("python3 -m pip install vpype");
+const cmd = exec("python -m pip install vpype vpype-gcode");
 
 cmd.stderr.pipe(process.stderr);
 cmd.stdout.pipe(process.stdout);

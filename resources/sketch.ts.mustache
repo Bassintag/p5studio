@@ -5,6 +5,7 @@ import type { SketchFn, SketchMetadata } from "{{packageName}}";
 // resolution: The width and height of your sketch
 // fps: The number of time your sketch is rendered every second (rendered only once if not specified)
 // optimizations: Optimizations to run on the saved svg file (does not work on download, only on save)
+// gCode: If true, a .gcode file with the same name as the .svg will be generated (false by default)
 export const metadata: SketchMetadata = {
   name: "{{&name}}",
   resolution: {
@@ -12,6 +13,7 @@ export const metadata: SketchMetadata = {
     h: 500,
   },
   optimizations: ['lineSimplify', 'lineMerge', 'reLoop', 'lineSort'],
+  gCode: true,
 };
 
 // This function is called once every time the sketch is loaded.
