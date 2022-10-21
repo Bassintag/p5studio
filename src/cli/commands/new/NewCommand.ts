@@ -5,8 +5,8 @@ import * as fs from "fs";
 import { getResource } from "../../utils/getResource";
 import Mustache from "mustache";
 import {
-  version as packageVersion,
   name as packageName,
+  version as packageVersion,
 } from "../../../../package.json";
 import chalk from "chalk";
 import prompts from "prompts";

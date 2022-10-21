@@ -16,7 +16,7 @@ export interface SidebarFolderLinkProps {
 }
 
 export const SidebarFolderLink = ({ folder }: SidebarFolderLinkProps) => {
-  const [isOpen, { toggle }] = useDisclosure(false);
+  const [isOpen, { toggle }] = useDisclosure(true);
 
   const icon = useMemo(() => {
     if (folder.children.length === 0) {
