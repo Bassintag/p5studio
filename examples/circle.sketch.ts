@@ -1,4 +1,4 @@
-import { SketchFn, SketchMetadata } from "@types";
+import { SketchFn, SketchMetadata } from "p5-studio";
 
 export const metadata: SketchMetadata = {
   name: "Circle",

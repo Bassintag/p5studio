@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["*.sketch.ts"],
+  "compilerOptions": {
+    "paths": {
+      "p5-studio": ["../src/types"]
+    }
+  }
+}
