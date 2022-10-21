@@ -23,6 +23,7 @@
     "prepublish": "yarn clear && yarn build",
     "postinstall": "node scripts/postinstall.js",
     "serve:app": "vite",
+    "serve:examples": "yarn start:cli serve -d ./examples",
     "start:cli": "node dist/cli/index.mjs",
     "build:cli": "node build-cli.mjs",
     "build:app": "vite build",

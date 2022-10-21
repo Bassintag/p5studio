@@ -2,7 +2,6 @@ export type SketchOptimizationOptions =
   | {
       type: "lineSimplify";
       tolerance?: string;
-      noFlip?: boolean;
       layer?: string;
     }
   | {

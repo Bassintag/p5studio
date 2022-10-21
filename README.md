@@ -7,6 +7,7 @@
 - [Getting Started](#getting-started)
 - [CLI](#cli)
 - [Writing sketches](#writing-sketches)
+- [Examples](#examples)
 
 ## Getting started
 
@@ -86,6 +87,14 @@ __In order for a sketch to be recognized, the file name must end by `.sketch.ts`
 It is recommended to use the `generate` command to create new sketches in order to avoid mistakes.
 
 The `optimization` field in the 
+
+## Examples
+
+For more examples please check out the [example folder](https://github.com/Bassintag/p5studio/tree/master/examples).
+
+You can run the examples locally by cloning this repository and using the following command:
+
+`npm run serve:examples`
 
 ### Example sketch
 
