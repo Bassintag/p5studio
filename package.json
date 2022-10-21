@@ -1,6 +1,6 @@
 {
   "name": "p5-studio",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "type": "module",
   "types": "dist/types",
   "license": "MIT",
