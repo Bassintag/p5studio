@@ -106,12 +106,19 @@ export class FileServer extends EventEmitter {
         chalk.yellow("to"),
         chalk.gray(outfile)
       );
-      await esbuild.build({
-        entryPoints: [filePath],
-        outfile,
-        minify: true,
-      });
-      this.emit("fileChange", pathHash);
+      try {
+        await esbuild.build({
+          entryPoints: [filePath],
+          outfile,
+          minify: true,
+        });
+        this.emit("fileChange", pathHash);
+      } catch (e) {
+        console.error(
+          chalk.red("Compilation failed for:"),
+          chalk.gray(filePath)
+        );
+      }
     }
   }
 
