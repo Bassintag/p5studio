@@ -86,7 +86,13 @@ __In order for a sketch to be recognized, the file name must end by `.sketch.ts`
 
 It is recommended to use the `generate` command to create new sketches in order to avoid mistakes.
 
-The `optimization` field in the 
+The `optimization` field in the sketch metadata can be used to specify optimizations that will be applied when a render is saved.
+This uses [vpype](https://vpype.readthedocs.io/en/latest/reference.html) in the background.
+Please see this [example](https://github.com/Bassintag/p5studio/blob/master/examples/advanced-optimizations.sketch.ts) to learn how to configure the different optimizations.
+
+The `gCode` metadata field can be used to generate a `.gcode` file alongside the `.svg`.
+This uses [vpype-gcode](https://pypi.org/project/vpype-gcode/) in the background.
+Please see the [gcode example](https://github.com/Bassintag/p5studio/blob/master/examples/gcode.sketch.ts) for more informations.
 
 ## Examples
 
