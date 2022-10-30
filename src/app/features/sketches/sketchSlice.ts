@@ -20,6 +20,8 @@ export interface SketchSliceState {
   autoRefresh: boolean;
   background: string;
   collapseFooter: boolean;
+  zoomAmount: number;
+  translateAmount: [number, number];
   logs: Record<string, SketchLog[]>;
 }
 
@@ -27,6 +29,8 @@ const initialState: SketchSliceState = {
   autoRefresh: true,
   collapseFooter: false,
   background: "white",
+  zoomAmount: 1,
+  translateAmount: [0, 0],
   logs: {},
 };
 
@@ -65,6 +69,15 @@ const sketchSlice = createSlice({
     clearSketchLogs: (state, { payload }: PayloadAction<string>) => {
       delete state.logs[payload];
     },
+    setZoomAmount: (state, { payload }: PayloadAction<number>) => {
+      state.zoomAmount = payload;
+    },
+    setTranslateAmount: (
+      state,
+      { payload }: PayloadAction<[number, number]>
+    ) => {
+      state.translateAmount = payload;
+    },
   },
 });
 
@@ -84,6 +97,8 @@ export const {
   clearSketchLogs,
   setSketchAutoRefresh,
   setSketchBackground,
+  setZoomAmount,
+  setTranslateAmount,
 } = sketchSlice.actions;
 
 export const selectSketchAutoRefresh = (state: RootState) =>
@@ -94,6 +109,12 @@ export const selectSketchCollapseFooter = (state: RootState) =>
 
 export const selectSketchBackground = (state: RootState) =>
   state.sketch.background;
+
+export const selectSketchZoomAmount = (state: RootState) =>
+  state.sketch.zoomAmount;
+
+export const selectSketchTranslateAmount = (state: RootState) =>
+  state.sketch.translateAmount;
 
 export const selectSketchLogs = (state: RootState, sketchId: string) =>
   state.sketch.logs[sketchId] ?? [];

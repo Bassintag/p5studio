@@ -17,7 +17,9 @@ const formatResolution = (metadata?: SketchMetadata) => {
 
 const formatOptimizations = (metadata?: SketchMetadata) => {
   if (metadata && metadata.optimizations) {
-    return metadata.optimizations.join(", ");
+    return metadata.optimizations
+      .map((o) => (typeof o === "object" ? o.type : o))
+      .join(", ");
   } else {
     return "none";
   }

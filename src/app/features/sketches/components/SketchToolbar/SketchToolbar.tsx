@@ -4,6 +4,7 @@ import { SketchDownloadButton } from "./SketchDownloadButton";
 import { SketchRefreshButton } from "./SketchRefreshButton";
 import { SketchAutoRefreshSwitch } from "./SketchAutoRefreshSwitch";
 import { SketchSaveButton } from "./SketchSaveButton";
+import { SketchZoomSlider } from "./SketchZoomSlider";
 
 const useStyles = createStyles((theme) => ({
   toolbar: {
@@ -21,6 +22,7 @@ export const SketchToolbar = () => {
 
   return (
     <div className={classes.toolbar}>
+      <SketchZoomSlider />
       <SketchBackgroundMenu />
       <SketchDownloadButton />
       <SketchSaveButton />
