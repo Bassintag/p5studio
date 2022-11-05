@@ -1,3 +1,3 @@
-import {SaveSketchMessage} from "@common/messages/SaveSketchMessage";
+import { SaveSketchMessage } from "@common/messages/SaveSketchMessage";
 
 export type ValidSocketMessage = SaveSketchMessage;
