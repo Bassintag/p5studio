@@ -3,15 +3,14 @@ import { useSketchCanvasContext } from "../../../contexts/SketchCanvasContext";
 import { SketchMetadata } from "../../../../../../types";
 
 const formatResolution = (metadata?: SketchMetadata) => {
-  if (
-    metadata &&
-    metadata.resolution &&
-    metadata.resolution.w != null &&
-    metadata.resolution.h != null
-  ) {
-    return `${metadata.resolution.w} x ${metadata.resolution.h}`;
+  if (metadata && metadata.resolution) {
+    if (typeof metadata.resolution === "string") {
+      return metadata.resolution;
+    } else {
+      return `${metadata.resolution.w} x ${metadata.resolution.h}`;
+    }
   } else {
-    return "default";
+    return "A4";
   }
 };
 

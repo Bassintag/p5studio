@@ -1,10 +1,6 @@
 import { SketchFn } from "./SketchFn";
 import { SketchOptimization } from "./SketchOptimization";
-
-export interface SketchResolution {
-  w: number;
-  h: number;
-}
+import { SketchResolution } from "./SketchResolution";
 
 export type SketchGCodeProfile =
   | "ninja"

@@ -1,7 +1,7 @@
 import { useSketchId } from "../hooks/useSketchId";
 import { useSketch } from "../hooks/useSketch";
 import { SketchCanvas } from "../components/SketchCanvas";
-import { createStyles, Loader } from "@mantine/core";
+import { createStyles, Loader, LoadingOverlay } from "@mantine/core";
 import { SketchCanvasProvider } from "../contexts/SketchCanvasContext";
 import { SketchToolbar } from "../components/SketchToolbar/SketchToolbar";
 import { SketchFooter } from "../components/SketchFooter/SketchFooter";
@@ -30,6 +30,6 @@ export const SketchPage = () => {
       </div>
     </SketchCanvasProvider>
   ) : (
-    <Loader />
+    <LoadingOverlay visible />
   );
 };

@@ -7,6 +7,7 @@ import { interceptConsole } from "../utils/interceptConsole";
 import { useAppDispatch } from "../../../store";
 import { addSketchLog, SketchLogType } from "../sketchSlice";
 import { useSketchId } from "./useSketchId";
+import { getSketchResolution } from "../utils/getSketchResolution";
 
 initP5Svg(p5);
 
@@ -22,10 +23,9 @@ export const useP5 = (sketch: Sketch, ref: React.RefObject<HTMLElement>) => {
 
     const instance = new p5((p: p5) => {
       p.setup = () => {
-        const { w, h } = sketch.metadata?.resolution ?? {
-          w: 100,
-          h: 100,
-        };
+        const { w, h } = getSketchResolution(
+          sketch.metadata?.resolution ?? "A4"
+        );
         p.createCanvas(w, h, (p as any).SVG);
         if (sketch.metadata?.fps) {
           p.frameRate(sketch.metadata.fps);

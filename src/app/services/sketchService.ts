@@ -29,7 +29,7 @@ export const loadSketch = (sketchId: string) => {
   });
 };
 
-export const getSketch = async (sketchId: string) => {
+export const getSketch = (sketchId: string) => {
   if (!(sketchId in modules)) {
     loadSketch(sketchId);
   }

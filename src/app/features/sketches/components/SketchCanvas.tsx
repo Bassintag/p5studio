@@ -32,6 +32,7 @@ const useStyles = createStyles(
     card: {
       display: "block",
       padding: 0,
+      lineHeight: 0,
       background,
       transform: `scale(${zoomAmount}) translate(${translateAmount[0]}px, ${translateAmount[1]}px)`,
     },
