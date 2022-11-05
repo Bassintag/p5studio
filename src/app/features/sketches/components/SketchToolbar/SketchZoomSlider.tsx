@@ -1,5 +1,4 @@
-import { ActionIcon, Slider } from "@mantine/core";
-import { AiOutlineZoomIn, AiOutlineZoomOut } from "react-icons/ai";
+import { Slider } from "@mantine/core";
 import { useAppDispatch, useAppSelector } from "../../../../store";
 import { selectSketchZoomAmount, setZoomAmount } from "../../sketchSlice";
 
@@ -15,6 +14,12 @@ const sliderMarks = [
   },
   {
     value: 3,
+  },
+  {
+    value: 4,
+  },
+  {
+    value: 5,
   },
 ];
 
@@ -35,7 +40,7 @@ export const SketchZoomSlider = () => {
       marks={sliderMarks}
       label={formatLabel}
       min={0.2}
-      max={3}
+      max={5}
       step={0.1}
       size="sm"
       styles={{

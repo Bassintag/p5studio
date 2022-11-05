@@ -9,7 +9,7 @@ export const useMouseWheelZoom = () => {
 
   const onWheel = (wheelEvent: React.WheelEvent) => {
     if (wheelEvent.deltaY < 0) {
-      dispatch(setZoomAmount(Math.min(3, zoomAmount + 0.1)));
+      dispatch(setZoomAmount(Math.min(5, zoomAmount + 0.1)));
     } else {
       dispatch(setZoomAmount(Math.max(0.1, zoomAmount - 0.1)));
     }

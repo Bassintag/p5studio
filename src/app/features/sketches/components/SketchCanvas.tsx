@@ -34,6 +34,7 @@ const useStyles = createStyles(
       padding: 0,
       lineHeight: 0,
       background,
+      borderRadius: 0,
       transform: `scale(${zoomAmount}) translate(${translateAmount[0]}px, ${translateAmount[1]}px)`,
     },
   })

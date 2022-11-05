@@ -17,6 +17,11 @@ export const SketchSaveButton = () => {
     if (svg == null) {
       return;
     }
+    const clone = svg.cloneNode(true) as SVGElement;
+    const width = clone.getAttribute("width");
+    const height = clone.getAttribute("height");
+    clone.setAttribute("width", `${width}mm`);
+    clone.setAttribute("height", `${height}mm`);
     const timestamp = format(new Date(), "yyMMdd-hhmmss");
     const fileName = `${sketch.metadata?.name ?? sketch.name}.${timestamp}.svg`;
     const id = fileName;
@@ -31,7 +36,7 @@ export const SketchSaveButton = () => {
     save(
       {
         fileName,
-        sketchData: svg.outerHTML,
+        sketchData: clone.outerHTML,
         options: sketch.metadata,
       },
       ({ path }) => {
@@ -45,6 +50,7 @@ export const SketchSaveButton = () => {
         });
       }
     );
+    console.log(clone);
   };
 
   return (

@@ -8,10 +8,7 @@ import type { SketchFn, SketchMetadata } from "{{packageName}}";
 // gCode: If true, a .gcode file with the same name as the .svg will be generated (false by default)
 export const metadata: SketchMetadata = {
   name: "{{&name}}",
-  resolution: {
-    w: 500,
-    h: 500,
-  },
+  resolution: 'A4',
   optimizations: ['lineSimplify', 'lineMerge', 'reLoop', 'lineSort'],
   gCode: true,
 };
@@ -20,14 +17,14 @@ export const metadata: SketchMetadata = {
 // You can initialize variable and settings here.
 // The parameter p is the p5 instance.
 export const setup: SketchFn = (p) => {
+    p.noFill();
+    p.strokeWeight(5);
+    p.stroke("red");
 };
 
 // This function is called once every frame.
 // Do your drawing here
 // The parameter p is the p5 instance.
 export const draw: SketchFn = (p) => {
-  p.noFill();
-  p.strokeWeight(5);
-  p.stroke("red");
   p.circle(250, 250, 300);
 };

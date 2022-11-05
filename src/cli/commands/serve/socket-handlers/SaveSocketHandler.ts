@@ -94,7 +94,7 @@ export class SaveSocketHandler extends SocketHandler<"save"> {
     try {
       await this.runVpypeOptimizations(optimizations, outPath);
       if (gCode) {
-        const { profile = "gcode" }: SketchGCodeOptions =
+        const { profile = "gcodemm" }: SketchGCodeOptions =
           typeof gCode === "object" ? gCode : {};
         await this.runVpypeGcode(outPath, profile);
       }
